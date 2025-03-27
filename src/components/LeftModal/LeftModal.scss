@@ -1,0 +1,151 @@
+.leftModal {
+      width: 424px;
+      padding: 70px 30px;
+      background: #060F42;
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      z-index: 10;
+      overflow: auto;
+
+      .modal_header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            svg {
+                  font-size: 24px;
+                  color: #D9D9D9;
+            }
+      }
+
+      h5 {
+            font-family: 'Lato', sans-serif;
+            font-weight: 600;
+            font-size: 18px;
+            line-height: 24px;
+            letter-spacing: 0%;
+            color: #D9D9D9;
+      }
+
+      .modal_body {
+            .login h5 {
+                  cursor: pointer;
+            }
+
+            margin-top: 40px;
+
+            h5 {
+                  margin-top: 20px;
+            }
+
+            .slideToggle {
+                  .toggleTop {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+
+                        svg {
+                              color: #D9D9D9;
+                        }
+                  }
+
+                  ul {
+                        margin: 0;
+                        padding: 0;
+
+                        li {
+                              margin-bottom: 12px;
+
+                              a {
+                                    font-family: 'Lato', sans-serif;
+                                    font-weight: 500;
+                                    font-size: 12px;
+                                    line-height: 16px;
+                                    letter-spacing: 0%;
+                                    color: #D9D9D9;
+                                    text-decoration: none;
+
+                                    &:hover {
+                                          text-decoration: underline;
+                                    }
+                              }
+                        }
+                  }
+            }
+
+            .contact {
+
+                  a,
+                  p {
+                        display: block;
+                        font-family: 'Lato', sans-serif;
+                        font-weight: 500;
+                        font-size: 12px;
+                        line-height: 16px;
+                        letter-spacing: 0%;
+                        color: #D9D9D9;
+                        text-decoration: none;
+                        margin: 0;
+                        padding: 0;
+                        margin-bottom: 12px;
+
+                        &:hover:not(p) {
+                              text-decoration: underline;
+                        }
+                  }
+            }
+
+            .socialNetwork {
+                  ul {
+                        margin: 0;
+                        padding: 0;
+                        display: flex;
+                        align-items: center;
+                        gap: 8px;
+
+                        li {
+                              width: 40px;
+                              height: 40px;
+                              border-radius: 50%;
+                              background: white;
+                              display: flex;
+                              align-items: center;
+                              justify-content: center;
+                              margin: 0;
+                              padding: 0;
+
+                              svg {
+                                    font-size: 24px;
+                                    color: #060F42;
+                              }
+                        }
+                  }
+            }
+      }
+}
+
+.leftModal::-webkit-scrollbar {
+      width: 0px;
+}
+
+@media (max-width:575px) {
+      .leftModal {
+            width: auto;
+            max-width: 100%;
+
+            .socialNetwork {
+                  ul {
+                        li {
+                              width: 30px;
+                              height: 30px;
+
+                              svg {
+                                    font-size: 18px;
+                              }
+                        }
+                  }
+            }
+      }
+}

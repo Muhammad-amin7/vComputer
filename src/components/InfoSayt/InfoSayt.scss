@@ -1,0 +1,25 @@
+.infoSayt {
+      margin-top: 100px;
+
+      h1 {
+            margin-bottom: 24px;
+      }
+
+      p {
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 28px;
+            letter-spacing: 0%;
+            color: #333;
+            text-align: justify;
+      }
+}
+
+@media (max-width:991px) {
+      .infoSayt {
+            p {
+                  font-size: 16px;
+                  line-height: 24px;
+            }
+      }
+}
