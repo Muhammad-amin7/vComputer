@@ -1,6 +1,6 @@
 [build]
   command = "npm run build"
-  publish = "dist"  # React (Vite) ishlatayotgan bo‘lsangiz
+  publish = "dist"  # Vite ishlatayotgan bo‘lsangiz
 
 [[redirects]]
   from = "/*"
