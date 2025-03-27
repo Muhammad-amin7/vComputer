@@ -43,6 +43,7 @@ export default function App() {
         <Route path='/*' element={<Error />} />
         <Route path="/personal" element={<Personal />} />
       </Routes>
+      <h1>Salom</h1>
       <Footer />
     </Context.Provider>
   )
