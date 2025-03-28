@@ -1,11 +1,11 @@
 export const userData = {
-      name: null,
+      name: "test",
       image: null,
-      telephone: null,
-      email: null,
+      phone: "test",
+      email: "test",
       deliveryMethod: {
-            city: null,
-            deliveryType: null,
-            address: null
+            city: "test",
+            deliveryType: "test",
+            address: "test"
       },
 }
