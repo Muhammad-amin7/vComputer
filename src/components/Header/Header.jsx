@@ -33,12 +33,9 @@ export default function Header() {
 
                               <Col lg={8}>
                                     <Slider {...settings}>
-                                          {headerSlider.map(({ text, title, id, image }) => (
+                                          {headerSlider.map(({ id, image }) => (
                                                 <div className='slider' key={id}>
                                                       <img src={image} alt="" />
-                                                      <h1>{title}</h1>
-                                                      <p>{text}</p>
-                                                      <button>Banner button</button>
                                                 </div>
                                           ))}
                                     </Slider>

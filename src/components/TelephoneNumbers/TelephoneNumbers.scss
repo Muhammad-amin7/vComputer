@@ -50,6 +50,7 @@
             overflow: hidden;
             padding: 0;
             transition: height 1s linear;
+            z-index: 5;
 
             &.active {
                   height: fit-content;

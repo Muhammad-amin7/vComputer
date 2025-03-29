@@ -15,8 +15,6 @@ export default function GameZone() {
       useEffect(() => {
             const updateItems = () => {
                   if (window.innerWidth <= 991) {
-                        setShowItems(3);
-                  } else if (window.innerWidth <= 1199) {
                         setShowItems(4);
                   } else {
                         setShowItems(6);
@@ -36,8 +34,16 @@ export default function GameZone() {
             infinite: true,
             nav: false,
             speed: 1500,
-            slidesToShow: showItems,
-            slidesToScroll: 2,
+            slidesToShow: 6,
+            slidesToScroll: 1,
+            responsive: [
+                  {
+                        breakpoint: 991,
+                        settings: {
+                              slidesToShow: 3,
+                        }
+                  }
+            ]
       };
 
       const gamingCategory = [
@@ -57,7 +63,7 @@ export default function GameZone() {
                               </Col>
                               <Row >
                                     {productData.slice(0, showItems).map((item, index) => {
-                                          return <Col key={index} xl={2} lg={3} md={4} xs={6}>
+                                          return <Col key={index} lg={2} md={3}>
                                                 <ProductItem product={[item]} />
                                           </Col>
                                     })}

@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from 'react';
 import './Navbar.scss'
 import { Container, Row, Col } from "react-bootstrap";
 import { FaBars, FaHeart, FaRegHeart } from "react-icons/fa";
-import { FaRegUser, FaScaleBalanced } from "react-icons/fa6";
+import { FaRegUser, FaScaleBalanced, FaXmark } from "react-icons/fa6";
 import { Link, useNavigate } from "react-router-dom";
 import logo from '../../assets/img/LOGO.png'
 import { BsBoxes } from "react-icons/bs";
@@ -16,6 +16,7 @@ import logoWhite from '../../assets/img/Logo white.png'
 import Basket from '../Basket/Basket';
 import { IoCart, IoCartOutline } from "react-icons/io5";
 import Favorites from '../Favorites/Favorites';
+import { PiArrowSquareOut } from "react-icons/pi";
 
 export default function Navbar() {
       const [changeLang, setChangeLang] = useState('ru')
@@ -48,7 +49,6 @@ export default function Navbar() {
       useEffect(() => {
             setBasketCount(0)
             addedCart.filter((item) => setBasketCount(prev => prev += item.count))
-            console.log(basketCount)
       }, [addedCart])
 
       const navLinks = [
@@ -62,9 +62,8 @@ export default function Navbar() {
 
       return (
             <>
-                  <nav style={{ top: isScroll || scrollYSize < 200 ? "0px" : "-100%" }}>
+                  <nav >
                         {/* Nav top */}
-                        {/* <LeftModal /> */}
                         {toggleLeftModal ? <LeftModal /> : null}
                         <div className="nav-top">
                               <Container >
@@ -104,15 +103,20 @@ export default function Navbar() {
                         </div>
 
                         {/* Nav bottom */}
-                        <div className="nav-bottom">
+                        <div className="nav-bottom" style={{ top: isScroll || scrollYSize < 50 ? "0px" : "-100%", position: scrollYSize > 50 ? "fixed" : "static" }}>
                               <Container >
                                     <Row className='align-items-center justify-content-between'>
                                           <Col lg='auto' md={2} className='d-none d-md-block' >
                                                 <Link to="/"><img src={logo} alt="computer shop logo" /></Link>
                                           </Col>
 
-                                          <Col lg='auto' xs={7} md={2} sm={3}>
-                                                <button onClick={() => setCatalogModalActive(prev => !prev)} className='btn-CatalogModal'>КАТАЛОГ ТОВАРОВ <BsBoxes /></button>
+                                          <Col lg='2' xs={7} md={2} sm={3} className=' d-flex justify-content-center'>
+                                                <button
+                                                      onClick={() => { setCatalogModalActive(prev => !prev); setIsScroll(true); setScrollSize(60); }}
+                                                      className='btn-CatalogModal'
+                                                      style={{ background: catalogModalActive && "#E93232" }}>
+                                                      {catalogModalActive ? "закрыть" : "КАТАЛОГ ТОВАРОВ"} {catalogModalActive ? <FaXmark /> : <PiArrowSquareOut />}
+                                                </button>
                                           </Col>
 
                                           <Col sm={5} md={4} xs={1} className=''>
@@ -129,19 +133,21 @@ export default function Navbar() {
                                                       <li className='d-none d-sm-block'><FaScaleBalanced /></li>
                                                       <li className='d-none d-sm-block' onClick={() => setFavoriteActive(true)}>
                                                             {favoriteProducts.length == 0 ? <FaRegHeart /> : <FaHeart />}
-                                                            {favoriteProducts.length !== 0 && <span style={{ background: "#E93232" }}>{favoriteProducts.length}</span>}
+                                                            {favoriteProducts.length !== 0 && <span className='count' style={{ background: "#E93232" }}>{favoriteProducts.length}</span>}
                                                       </li>
                                                       <li onClick={() => setBasketActive(true)}>
                                                             {basketCount !== 0 ? <IoCart /> : <IoCartOutline />}
-                                                            {basketCount !== 0 && <span style={{ background: "#06A56C" }}>{basketCount}</span>}
+                                                            {basketCount !== 0 && <span className='count' style={{ background: "#06A56C" }}>{basketCount}</span>}
                                                       </li>
                                                 </ul>
                                           </Col>
                                     </Row>
                               </Container >
                         </div>
-                        <LoginModal login={loginModalActive} setLogin={setLoginModalActive} />
                   </nav >
+
+                  {/* Modals */}
+                  <LoginModal login={loginModalActive} setLogin={setLoginModalActive} />
                   <CatalogProductModal active={catalogModalActive} setActive={setCatalogModalActive} />
                   <Basket active={basketActive} setActive={setBasketActive} />
                   <Favorites active={favoriteActive} setActive={setFavoriteActive} />

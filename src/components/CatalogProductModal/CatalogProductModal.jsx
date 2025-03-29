@@ -3,23 +3,30 @@ import { CatalogName } from '../../Constants/Data'
 import { FaChevronRight } from 'react-icons/fa'
 import { FaXmark } from 'react-icons/fa6'
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 
 export default function CatalogProductModal({ active, setActive }) {
       const [activeMenu, setActiveMenu] = useState(0)
 
-      if (active) {
-            document.querySelector('body').style.overflow = "hidden"
-      } else {
-            document.querySelector('body').style.overflow = "auto"
-      }
+      useEffect(() => {
+            if (active) {
+                  document.querySelector('body').style.overflow = "hidden"
+            }
+            else {
+                  document.querySelector('body').style.overflow = "auto"
+            }
+            return (() => {
+                  document.querySelector('body').style.overflow = "auto"
+            })
+
+      }, [active])
 
       return (
             <div className='catalogModalBg' style={{ display: active ? "flex" : 'none' }}>
                   {/* <ModalBG /> */}
                   <div className='catalogProductModal'>
-                        <div className='d-block d-sm-none smClose' onClick={() => setActive(false)}> <FaXmark /></div>
+                        <div className='close' onClick={() => setActive(false)}> <FaXmark /></div>
                         <ul className='menu'>
                               {CatalogName.map(({ id, name, icon }) => {
                                     return <React.Fragment key={id}>

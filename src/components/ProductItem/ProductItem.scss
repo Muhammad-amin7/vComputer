@@ -5,6 +5,7 @@
       border-radius: 4px;
       cursor: pointer;
       margin-bottom: 10px;
+      margin-right: 20px;
 
       &:hover {
             background: #F4F8FB;
@@ -187,5 +188,61 @@
                   }
             }
 
+      }
+}
+
+@media (max-width:1200px) {
+      .product {
+            padding: 8px;
+
+            .productTop .left .isNew {
+                  margin-left: -9px;
+                  font-size: 10px;
+                  line-height: 14px;
+            }
+
+            .productInfo {
+                  img {
+                        height: 100px;
+                  }
+
+                  p.name {
+                        font-size: 10px;
+                        line-height: 13px;
+                        height: 40px;
+                        margin: 10px 0;
+                  }
+
+                  .stars {
+                        p {
+                              font-size: 9px;
+                        }
+
+                        svg {
+                              font-size: 9px;
+                              margin: 0;
+                        }
+                  }
+            }
+
+            .productBottom {
+                  margin-top: 15px;
+
+                  button {
+                        width: 50px;
+                        height: 27px;
+                  }
+
+                  div.price {
+                        p {
+                              font-size: 10px !important;
+                              margin-bottom: 10px;
+
+                              span {
+                                    font-size: 8px !important;
+                              }
+                        }
+                  }
+            }
       }
 }

@@ -125,3 +125,15 @@ footer {
             }
       }
 }
+
+@media (max-width:1200px) {
+      footer {
+            ul {
+
+                  span,
+                  form label {
+                        font-size: 15px;
+                  }
+            }
+      }
+}

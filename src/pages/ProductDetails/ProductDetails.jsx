@@ -11,7 +11,12 @@ export default function ProductDetails() {
   useEffect(() => {
     const foundItem = productData.find((element) => element.id === Number(id));
     setItem(foundItem);
+
+    if (foundItem) {
+      document.title = foundItem.name
+    }
   }, [id]);
+
 
   if (!item) return <div><h1>Item not found</h1><Outlet to="/" /></div>;
   return (

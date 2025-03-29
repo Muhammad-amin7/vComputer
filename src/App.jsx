@@ -13,7 +13,7 @@ import Personal from "./pages/Personal account/Personal";
 
 
 export default function App() {
-  // pass the registration?
+  // pass the registration
   const [passRegister, setPassRegister] = useState(false)
   // toggle left modal open/close
   const [toggleLeftModal, setToggleLeftModal] = useState(false)

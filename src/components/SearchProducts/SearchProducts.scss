@@ -104,12 +104,16 @@
 }
 
 @media (max-width:575px) {
-      form.searchProduct {
-            button {
-                  background: transparent;
-                  border: none;
-                  color: white;
-                  font-size: 30px;
+      .navSearch {
+            form.searchProduct {
+                  button {
+                        background: transparent;
+                        border: none;
+                        color: white;
+                        font-size: 30px;
+                        padding: 0;
+                        margin: 0;
+                  }
             }
       }
 }
