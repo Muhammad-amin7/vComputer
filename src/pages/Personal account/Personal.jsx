@@ -3,8 +3,12 @@ import './Personal.scss'
 import { FaXRay } from 'react-icons/fa'
 import userPhoto from "../../assets/img/userImg.svg"
 import { userData } from '../../Constants/UserData'
+import { FiEdit2 } from "react-icons/fi";
+import ModalChangeInfo from './ModalChangeInfo'
+import { useState } from 'react'
 
 export default function Personal() {
+      const [isChange, setIsChange] = useState(false)
       return (
             <section className='personal'>
                   <Container >
@@ -28,35 +32,48 @@ export default function Personal() {
                                           </div>
 
                                           <div className="info">
-                                                <div className='item'>
-                                                      <h5>ФИО</h5>
-                                                      <p>{userData.name ? userData.name : 'Добавить'}</p>
-                                                </div>
+                                                {Object.keys(userData).map((element, index) => {
+                                                      const key = userData[element].title;
+                                                      const value = userData[element].value;
+                                                      isChange && <ModalChangeInfo title={key} val={value} />
 
-                                                <div className='item'>
-                                                      <h5>Телефон</h5>
-                                                      <p>{userData.phone ? userData.phone : 'Добавить'}</p>
-                                                </div>
+                                                      return <div className="item" key={index}>
+                                                            {((typeof value === 'string' || value === null)) ?
+                                                                  // email , number , name
+                                                                  (key ? <>
+                                                                        <h5>{key}</h5>
+                                                                        <p>
+                                                                              {value ? value : "Добавить"}
 
-                                                <div className='item'>
-                                                      <h5>Email</h5>
-                                                      <p>{userData.email ? userData.email : 'Добавить'}</p>
-                                                </div>
+                                                                              <button onClick={() => setIsChange(true)}>
+                                                                                    <FiEdit2 />
+                                                                              </button>
+                                                                        </p>
+                                                                  </> : null)
+                                                                  // address
+                                                                  : <>
+                                                                        {key ? <>
+                                                                              <h5>{key}</h5>
 
-                                                <div className="item">
-                                                      <h5>Основной способ доставки</h5>
-                                                      <p>
-                                                            {userData.deliveryMethod.city ? (
-                                                                  <>
-                                                                        <span>{userData.deliveryMethod.city}</span>{' '}
-                                                                        <span>{userData.deliveryMethod.deliveryType}</span>{' '}
-                                                                        <span>{userData.deliveryMethod.address}</span>
+                                                                              <p>
+                                                                                    <div >
+                                                                                          {value?.map((item, id) => {
+                                                                                                return <span key={id}>
+                                                                                                      {Object.values(item)}
+                                                                                                </span>
+                                                                                          })}
+                                                                                    </div>
+
+                                                                                    <button>
+                                                                                          <FiEdit2 />
+                                                                                    </button>
+                                                                              </p>
+                                                                        </> : null}
                                                                   </>
-                                                            ) : (
-                                                                  'Добавить'
-                                                            )}
-                                                      </p>
-                                                </div>
+
+                                                            }
+                                                      </div>
+                                                })}
                                           </div>
                                     </div>
                               </Col>
