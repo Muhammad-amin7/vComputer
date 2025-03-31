@@ -5,27 +5,38 @@ import { useContext } from 'react'
 import { Context } from '../../Hooks/Context'
 import ProductItem from '../ProductItem/ProductItem'
 import PropTypes from 'prop-types'
+import { Col, Container, Row } from 'react-bootstrap'
 
 export default function Favorites({ active, setActive }) {
       const { favoriteProducts } = useContext(Context)
       return (
             <div className='favorites' style={{ display: active ? "flex" : 'none' }}>
                   <div className="content">
-                        <div className="head">
-                              <h1>Избранные товары</h1>
-                              <FaXmark onClick={() => setActive(false)} />
-                        </div>
+                        <Container>
+                              <Row >
+                                    <Col lg={12} >
+                                          <div className="head">
+                                                <h1>Избранные товары</h1>
+                                                <FaXmark onClick={() => setActive(false)} />
+                                          </div>
+                                    </Col>
 
-                        <div className="products">
-                              {favoriteProducts.length <= 0 ? <p className='noProduct'>Нет избранных товаров</p> :
-                                    favoriteProducts.map(item =>
-                                          productData.map((element, index) =>
-                                                element.id === item ? <ProductItem product={[element]} key={index} /> : null
-                                          ))
-                              }
-                        </div>
-                  </div>
-            </div>
+                                    <Col lg={12}>
+                                          <Row>
+
+                                                {favoriteProducts.length <= 0 ? <p className='noProduct'>Нет избранных товаров</p> :
+                                                      favoriteProducts.map(item =>
+                                                            productData.map((element, index) =>
+                                                                  element.id === item ? <Col lg={2} key={index}> <ProductItem product={[element]} /></Col> : null
+                                                            ))
+                                                }
+
+                                          </Row>
+                                    </Col>
+                              </Row>
+                        </Container>
+                  </div >
+            </div >
       )
 }
 

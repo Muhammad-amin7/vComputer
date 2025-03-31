@@ -9,6 +9,9 @@ import { useState } from 'react'
 
 export default function Personal() {
       const [isChange, setIsChange] = useState(false)
+      const [userDB, setUserDB] = useState(userData)
+      const [changeTitle, setChangeTitle] = useState(" ")
+      const [changeValue, setChangeValue] = useState(" ")
       return (
             <section className='personal'>
                   <Container >
@@ -27,15 +30,14 @@ export default function Personal() {
                                     <h1>Личные данные</h1>
                                     <div className="user" >
                                           <div className="image">
-                                                <img src={userData.image ? userData.image : userPhoto} alt="" />
+                                                <img src={userDB.image ? userDB.image : userPhoto} alt="" />
                                                 <button>Загрузить фото</button>
                                           </div>
 
                                           <div className="info">
-                                                {Object.keys(userData).map((element, index) => {
-                                                      const key = userData[element].title;
-                                                      const value = userData[element].value;
-                                                      isChange && <ModalChangeInfo title={key} val={value} />
+                                                {Object.keys(userDB).map((element, index) => {
+                                                      const key = userDB[element].title;
+                                                      const value = userDB[element].value;
 
                                                       return <div className="item" key={index}>
                                                             {((typeof value === 'string' || value === null)) ?
@@ -45,7 +47,7 @@ export default function Personal() {
                                                                         <p>
                                                                               {value ? value : "Добавить"}
 
-                                                                              <button onClick={() => setIsChange(true)}>
+                                                                              <button onClick={() => { setIsChange(true); setChangeTitle(key); setChangeValue(value) }}>
                                                                                     <FiEdit2 />
                                                                               </button>
                                                                         </p>
@@ -79,6 +81,10 @@ export default function Personal() {
                               </Col>
                         </Row>
                   </Container>
+
+                  {isChange && <ModalChangeInfo title={changeTitle} value={changeValue} setValue={setChangeValue} active={isChange} setActive={setIsChange} data={setUserDB} />}
             </section>
+
       )
+
 }
