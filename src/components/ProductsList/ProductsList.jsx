@@ -43,7 +43,7 @@ export default function ProductsList() {
                               </Col>
 
                               {allProducts ? [...productData].reverse().map((item, index) => {
-                                    return <Col lg={2} md={5} key={index}><ProductItem product={[item]} /></Col>
+                                    return <Col lg={2} md={3} key={index}><ProductItem product={[item]} /></Col>
                               }) : null}
                         </Row>
                   </Container>

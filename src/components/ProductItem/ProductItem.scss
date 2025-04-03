@@ -5,7 +5,7 @@
       border-radius: 4px;
       cursor: pointer;
       margin-bottom: 10px;
-      margin-right: 20px;
+
 
       &:hover {
             background: #F4F8FB;
@@ -186,9 +186,18 @@
                               transition: 300ms linear;
                         }
                   }
+
+                  &:active {
+                        transform: translate(2px, 2px);
+                        box-shadow: inset 5px 5px 10px 0px #00000075;
+                  }
             }
 
       }
+}
+
+.slick-slider .product {
+      margin: 5px;
 }
 
 @media (max-width:1200px) {

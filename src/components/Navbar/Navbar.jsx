@@ -5,7 +5,7 @@ import { FaBars, FaHeart, FaRegHeart } from "react-icons/fa";
 import { FaRegUser, FaScaleBalanced, FaXmark } from "react-icons/fa6";
 import { Link, useNavigate } from "react-router-dom";
 import logo from '../../assets/img/LOGO.png'
-import { BsBoxes } from "react-icons/bs";
+// import { BsBoxes } from "react-icons/bs";
 import SearchProducts from '../SearchProducts/SearchProducts';
 import TelephoneNumbers from '../TelephoneNumbers/TelephoneNumbers';
 import LeftModal from '../LeftModal/LeftModal';
@@ -26,15 +26,9 @@ export default function Navbar() {
       const [favoriteActive, setFavoriteActive] = useState(false)
       const [catalogModalActive, setCatalogModalActive] = useState(false)
       const [basketCount, setBasketCount] = useState(0)
-      const [isScroll, setIsScroll] = useState(true)
       const [scrollYSize, setScrollSize] = useState(0)
       const navigate = useNavigate()
       const handleActiveScroll = () => {
-            if (window.scrollY > scrollYSize) {
-                  setIsScroll(false)
-            } else {
-                  setIsScroll(true)
-            }
             setScrollSize(window.scrollY)
       }
       useEffect(() => {
@@ -103,7 +97,7 @@ export default function Navbar() {
                         </div>
 
                         {/* Nav bottom */}
-                        <div className="nav-bottom" style={{ top: isScroll || scrollYSize < 50 ? "0px" : "-100%", position: scrollYSize > 50 ? "fixed" : "static" }}>
+                        <div className="nav-bottom" style={{ top: scrollYSize < 20 ? "60px" : "0px" }} >
                               <Container >
                                     <Row className='align-items-center justify-content-between'>
                                           <Col lg='auto' md={2} className='d-none d-md-block' >
@@ -112,7 +106,7 @@ export default function Navbar() {
 
                                           <Col lg='2' xs={7} md={2} sm={3} className=' d-flex justify-content-center'>
                                                 <button
-                                                      onClick={() => { setCatalogModalActive(prev => !prev); setIsScroll(true); setScrollSize(60); }}
+                                                      onClick={() => { setCatalogModalActive(prev => !prev); setScrollSize(60); }}
                                                       className='btn-CatalogModal'
                                                       style={{ background: catalogModalActive && "#E93232" }}>
                                                       {catalogModalActive ? "закрыть" : "КАТАЛОГ ТОВАРОВ"} {catalogModalActive ? <FaXmark /> : <PiArrowSquareOut />}
@@ -147,7 +141,7 @@ export default function Navbar() {
                   </nav >
 
                   {/* Modals */}
-                  <LoginModal login={loginModalActive} setLogin={setLoginModalActive} />
+                  < LoginModal login={loginModalActive} setLogin={setLoginModalActive} />
                   <CatalogProductModal active={catalogModalActive} setActive={setCatalogModalActive} />
                   <Basket active={basketActive} setActive={setBasketActive} />
                   <Favorites active={favoriteActive} setActive={setFavoriteActive} />

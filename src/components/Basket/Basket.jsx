@@ -6,6 +6,7 @@ import { FaXmark } from 'react-icons/fa6';
 import { Context } from '../../Hooks/Context';
 import { FaTrash } from 'react-icons/fa';
 import PropTypes from 'prop-types';
+import { Col, Row } from 'react-bootstrap';
 
 export default function Basket({ active, setActive }) {
       // Context
@@ -75,10 +76,15 @@ export default function Basket({ active, setActive }) {
                         <h2>Новинка</h2>
 
                         <div className="topProducts">
-                              {productData.map((item, index) => {
-                                    return item.isNew ? <ProductItem key={index} product={[item]} onClick={() => setActive(false)} /> : null
-                              })}
+                              <Row>
+                                    {productData.map((item, index) => {
+                                          return item.isNew ? <Col md={4}><ProductItem key={index} product={[item]} onClick={() => setActive(false)} /></Col> : null
+                                    })}
+                              </Row>
                         </div>
+
+
+
                   </div>
             </div >
       )

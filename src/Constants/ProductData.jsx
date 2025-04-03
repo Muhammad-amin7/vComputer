@@ -30,6 +30,12 @@ import product20 from "../assets/img/Product 7 (1).jpg"
 import product21 from "../assets/img/Product 7 (2).jpg"
 import product22 from "../assets/img/Product 7 (3).jpg"
 import product23 from "../assets/img/Product 7.png" //
+
+import product24 from "../assets/img/Product 8 (1).jpg"
+import product25 from "../assets/img/Product 8 (2).jpg"
+import product26 from "../assets/img/Product 8 (3).jpg"
+import product27 from "../assets/img/Product 8 (4).jpg"
+import product28 from "../assets/img/Product 8.png" //
 export const productData = [
       {
             id: 0,
@@ -207,12 +213,51 @@ export const productData = [
             isTop: false,
             comment: 7,
             stars: 4,
-            image: [product20, product21, product22, product23],
+            image: [product23, product20, product21, product22,],
             name: "HyperX Cloud III Wireless Red",
             price: {
                   price: 2111000,
                   new: 1710000
             },
+            features: [
+                  { key: "Тип наушников", value: "Полноразмерные" },
+                  { key: "Режим работы", value: "2.4 ГГц, Провод" },
+                  { key: "Тип звучания", value: "Стерео" },
+                  { key: "Размер динамиков (мм)", value: "53 мм" },
+                  { key: "Частотный диапазон наушников", value: "10 - 21000 Гц" },
+                  { key: "Сопротивление наушников", value: "64 Ом" },
+                  { key: "Чувствительность наушников", value: "112 дБ" },
+                  { key: "Частотный диапазон микрофона", value: "100 - 10000 Гц" },
+                  { key: "Чувствительность микрофона", value: "-21,5 дБ" },
+                  { key: "Подключение, разъемы", value: "USB Type-A, USB Type-C, Радио" },
+                  { key: "Звуковая карта", value: "Нет" },
+                  { key: "Длина провода", value: "0.5 м" },
+                  { key: "Подсветка", value: "Нет" },
+                  { key: "Вес", value: "367 г" }
+            ],
             description: "Линейка геймерских гарнитур HyperX Cloud стала легендарной благодаря фирменному комфорту и вниманию к деталям, которые четко прослеживаются и в Cloud III Wireless. Гарнитура оснащена модернизированными 53-миллиметровыми драйверами, расположенными под анатомическим углом, и технологией DTS Headphone: X что обеспечивает полное погружение в процесс и точную пространственную передачу 3D звука. Команда инженеров-акустиков HyperX настроила драйверы гарнитуры для оптимального и четкого воспроизведения звука. Беспроводная гарнитура Cloud III Wireless также идеально подходит для длительных игровых сессий благодаря мягким амбушюрам HyperX из пеноматериала с эффектом памяти формы, дополнительной мягкой прокладке в оголовье, и литий-полимерной батареей, которая обеспечивает до 120 часов автономности. Гарнитура оснащена 10-миллиметровым микрофоном с ультрачетким звучанием и функцией шумоподавления, а также внутренним металлическим сетчатым поп-фильтром, который снижает уровень помех. В гарнитуру встроены простые элементы управления звуком и микрофоном, она совместима с ПК, PS5 и PS4. Гарнитура оснащена малогабаритным USB радиомодулем, который работает в диапазоне 2.4 ГГц и поддерживает аудиопоток до 96 кГц, 24 бит."
+      },
+
+      {
+            id: 7,
+            isNew: true,
+            isTop: true,
+            comment: 5,
+            stars: 5,
+            image: [product28, product24, product25, product26, product27],
+            name: "ASUS ROG Strix SCAR 18 G835LW-SA090W (90NR0LI1-M00400)",
+            price: {
+                  price: 52000000,
+                  new: 49590000
+            },
+            features: [
+                  { key: "Процессор", value: "Intel Core Ultra 9-275HX" },
+                  { key: "Оперативная память", value: "16GB 5600MHz DDR5" },
+                  { key: "Хранилище", value: "1TB PCIe® 4.0 NVMe™ M.2 SSD" },
+                  { key: "Видеокарта", value: "NVIDIA GeForce RTX 5080 16GB GDDR7" },
+                  { key: "Экран", value: "18 (2560 x 1600), IPS 240Hz" }
+            ],
+            bonus: [product20, "HyperX Cloud III Wireless Red"],
+            count: 5000,
       },
 ]

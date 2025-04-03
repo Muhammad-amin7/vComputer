@@ -12,9 +12,15 @@ export default function ProductDetails() {
     const foundItem = productData.find((element) => element.id === Number(id));
     setItem(foundItem);
 
+    // favicon + title 
     if (foundItem) {
-      document.title = foundItem.name
+      document.title = foundItem.name;
+      const link = document.querySelector("link[rel~='icon']") || document.createElement("link");
+      link.rel = "icon";
+      link.href = foundItem.image[0]; // Favicon URL
+      document.head.appendChild(link);
     }
+
   }, [id]);
 
 

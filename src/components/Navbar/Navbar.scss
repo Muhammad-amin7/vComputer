@@ -2,6 +2,7 @@ nav {
       .nav-top {
             background: #060F42;
             padding: 12px 0;
+            margin-bottom: 100px;
 
             button.btn-leftMenu {
                   background: transparent;
@@ -64,6 +65,7 @@ nav {
       }
 
       .nav-bottom {
+            position: fixed;
             top: 70px;
             left: 0;
             width: 100%;
