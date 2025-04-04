@@ -1,8 +1,23 @@
 import { FaEdit } from "react-icons/fa";
 import "./UserInfo.scss";
+import { useContext, useEffect } from "react";
+import { Context } from "../../../../Hooks/Context";
 
 
 export default function UserInfo() {
+      const { userInfo, setUserInfo } = useContext(Context)
+      useEffect(() => {
+            setUserInfo(prev =>
+                  (Array.isArray(prev) ? prev : []).map(item =>
+                        item && item.id === 0 ? { ...item, value: "Muhammad Amin" } : item
+                  )
+            );
+      }, [])
+
+
+      console.log(userInfo);
+
+
       return (
             <div className='user_info'>
                   <h3>Личные данные</h3>
@@ -13,23 +28,13 @@ export default function UserInfo() {
                         </div>
 
                         <div className="user_data">
-                              <div className="data_item">
-                                    <p className="title">ФИО</p>
-                                    <p className="info">Иванов Иван Иванович</p>
-                                    <FaEdit />
-                              </div>
-
-                              <div className="data_item">
-                                    <p className="title">Телефон</p>
-                                    <p className="info">+38 067 009 90 09</p>
-                                    <FaEdit />
-                              </div>
-
-                              <div className="data_item">
-                                    <p className="title">Email</p>
-                                    <p className="info">ivanov@gmail.com</p>
-                                    <FaEdit />
-                              </div>
+                              {userInfo.map((item) => {
+                                    return <div className="data_item" key={item.id}>
+                                          <p className="title">{item.name}</p>
+                                          <p className="info">{item.value ? item.value : <span>Добавить</span>}</p>
+                                          <FaEdit />
+                                    </div>
+                              })}
                         </div>
                   </div>
             </div>

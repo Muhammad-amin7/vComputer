@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Personal from "./pages/personal accaunt/Personal";
+import { userData } from "./Constants/UserData";
 
 
 export default function App() {
@@ -32,8 +33,10 @@ export default function App() {
     localStorage.setItem("favoriteProducts", JSON.stringify(favoriteProducts));
     localStorage.setItem("addedCart", JSON.stringify(addedCart));
   }, [favoriteProducts, addedCart]);
+  // user info
+  const [userInfo, setUserInfo] = useState(userData)
   return (
-    <Context.Provider value={{ toggleLeftModal, setToggleLeftModal, addedCart, setAddedCart, favoriteProducts, setFavoriteProducts, passRegister, setPassRegister }}>
+    <Context.Provider value={{ toggleLeftModal, setToggleLeftModal, addedCart, setAddedCart, favoriteProducts, setFavoriteProducts, passRegister, setPassRegister, userInfo, setUserInfo }}>
       <Navbar />
       <Routes>
         <Route path='/' element={<Home />} />
