@@ -88,7 +88,7 @@ export default function Navbar() {
                                                 <div className='d-block d-sm-none'>
                                                       <TelephoneNumbers />
                                                 </div>
-                                                <button className='btn-login d-none d-sm-block' onClick={() => passRegister ? navigate("/personal") : setLoginModalActive(true)}>
+                                                <button className='btn-login d-none d-sm-block' onClick={() => passRegister ? navigate("/personal/Personal_information") : setLoginModalActive(true)}>
                                                       <FaRegUser />
                                                 </button>
                                           </Col>

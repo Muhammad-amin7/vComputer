@@ -15,7 +15,9 @@ export default function CommentsList() {
       const [starHover, setStarHover] = useState()
       // add new comment
       const [addNewComment, setAddNewComment] = useState(false)
+      // 
       const [commentsDataState, setCommentsDataState] = useState(commentsData)
+      // 
       return (
             <>
                   <h3 className="subTitle">Отзывы ({commentsDataState.length})</h3>
@@ -56,7 +58,7 @@ export default function CommentsList() {
                                           </div>
 
                                           <div className="foot">
-                                                <button>
+                                                <button onClick={() => setAddNewComment(true)}>
                                                       <RiMessage2Line />
                                                       Ответить
                                                 </button>

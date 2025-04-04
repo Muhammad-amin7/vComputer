@@ -50,7 +50,7 @@ export default function LoginModal({ login, setLogin }) {
                         })
                   })
                   setRegisterModal(false);
-                  navigate("/personal")
+                  navigate("/personal/Personal_information")
                   setPassRegister(true)
             }
       };
@@ -70,7 +70,7 @@ export default function LoginModal({ login, setLogin }) {
 
             if (isPhoneValid && isPasswordValid) {
                   setLogin(false);
-                  navigate("/personal")
+                  navigate("/personal/Personal_information")
                   setPassRegister(true)
             }
       };

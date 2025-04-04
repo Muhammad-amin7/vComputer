@@ -9,7 +9,7 @@ import { Context } from "./Hooks/Context";
 import { useEffect, useState } from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Personal from "./pages/Personal account/Personal";
+import Personal from "./pages/personal accaunt/Personal";
 
 
 export default function App() {
@@ -32,7 +32,6 @@ export default function App() {
     localStorage.setItem("favoriteProducts", JSON.stringify(favoriteProducts));
     localStorage.setItem("addedCart", JSON.stringify(addedCart));
   }, [favoriteProducts, addedCart]);
-
   return (
     <Context.Provider value={{ toggleLeftModal, setToggleLeftModal, addedCart, setAddedCart, favoriteProducts, setFavoriteProducts, passRegister, setPassRegister }}>
       <Navbar />
@@ -41,7 +40,7 @@ export default function App() {
         <Route path="/news" element={<News />} />
         <Route path="/ProductDetails/:id" element={<ProductDetails />} />
         <Route path='/*' element={<Error />} />
-        <Route path="/personal" element={<Personal />} />
+        <Route path="/personal/:page" element={<Personal />} />
       </Routes>
       <Footer />
     </Context.Provider>
