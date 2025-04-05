@@ -3,8 +3,11 @@ import './Header.scss'
 import { CatalogName, headerIcons, headerSlider } from '../../Constants/Data'
 import { FaChevronRight } from "react-icons/fa6";
 import Slider from 'react-slick';
+import { useContext } from 'react';
+import { Context } from '../../Hooks/Context';
 
 export default function Header() {
+      const { language } = useContext(Context)
       var settings = {
             dots: true,
             infinite: true,
@@ -21,10 +24,10 @@ export default function Header() {
                         <Row>
                               <Col lg={4} className='d-none d-lg-block'>
                                     <ul className='catalogs'>
-                                          {CatalogName.map(({ id, name, icon }) => (
+                                          {CatalogName.map(({ id, name_uz, name_ru, icon }) => (
                                                 <li key={id}>
                                                       <img src={icon} alt="" />
-                                                      <span>{name}</span>
+                                                      <span>{language === 'uz' ? name_uz : name_ru}</span>
                                                       <FaChevronRight />
                                                 </li>
                                           ))}
@@ -41,10 +44,10 @@ export default function Header() {
                                     </Slider>
 
                                     <div className="smallIcons">
-                                          {headerIcons.map(({ id, image, text }) => (
+                                          {headerIcons.map(({ id, image, text_ru, text_uz }) => (
                                                 <div key={id}>
                                                       <img src={image} alt="" />
-                                                      <span>{text}</span>
+                                                      <span>{language === "uz" ? text_uz : text_ru}</span>
                                                 </div>
                                           ))}
                                     </div>

@@ -9,12 +9,13 @@ export const telephoneNumbers = [
 
 // pages
 export const navLinks = [
-      { id: 0, linkName: 'Акции', slug: '/sale' },
-      { id: 1, linkName: 'Кредит', slug: '/credit' },
-      { id: 2, linkName: 'Оплата и доставка', slug: '/payment' },
-      { id: 3, linkName: 'Помощь', slug: '/help' },
-      { id: 4, linkName: 'Скупка Б/У', slug: '/buyback' },
-      { id: 5, linkName: 'Контакты', slug: '/contact' },
+      { id: 0, linkName_ru: 'Акции', linkName_uz: 'Aksiyalar', slug: '/sale' },
+      { id: 1, linkName_ru: 'Кредит', linkName_uz: 'Kredit', slug: '/credit' },
+      { id: 2, linkName_ru: 'Оплата и доставка', linkName_uz: 'To\'lov va yetkazib berish', slug: '/payment' },
+      { id: 3, linkName_ru: 'Помощь', linkName_uz: 'Yordam', slug: '/help' },
+      { id: 4, linkName_ru: 'Скупка Б/У', linkName_uz: 'Ishlatilganlarni sotib olish', slug: '/buyback' },
+      { id: 5, linkName_ru: 'Контакты', linkName_uz: 'Kontaktlar', slug: '/contact' },
+      { id: 6, linkName_ru: 'Yangiliklar', linkName_uz: 'Новости', slug: '/news' },
 ]
 
 
@@ -33,108 +34,177 @@ export const CatalogName = [
       {
             id: 0,
             icon: img1,
-            name: "Комплектующие ПК",
-            menu: [
+            name_ru: "Комплектующие ПК",
+            name_uz: "Kompyuter qismlari",
+            menu_ru: [
                   "Видеокарты",
                   "Оперативная память",
                   "SSD накопители",
                   "Материнские платы",
                   "Процессоры",
                   "Оперативная память",
+            ],
+            menu_uz: [
+                  "Videokartalar",
+                  "Operativ xotira",
+                  "SSD drayvlar",
+                  "Onalik platalar",
+                  "Protsessorlar",
+                  "Operativ xotira",
             ]
       },
       {
             id: 1,
             icon: img2,
-            name: "Мониторы",
-            menu: [
+            name_ru: "Мониторы",
+            name_uz: "Monitorlar",
+            menu_ru: [
                   "Видеокарты",
                   "Оперативная память",
                   "Материнские платы",
                   "Процессоры",
                   "Оперативная память",
                   "SSD накопители",
+            ],
+            menu_uz: [
+                  "Videokartalar",
+                  "Operativ xotira",
+                  "Onalik platalar",
+                  "Protsessorlar",
+                  "Operativ xotira",
+                  "SSD drayvlar",
             ]
       },
       {
             id: 2,
             icon: img10,
-            name: "Компьютеры",
-            menu: [
+            name_ru: "Компьютеры",
+            name_uz: "Kompyuterlar",
+            menu_ru: [
                   "Видеокарты",
                   "Оперативная память",
                   "SSD накопители",
                   "Материнские платы",
                   "Процессоры",
                   "SSD накопители",
+            ],
+            menu_uz: [
+                  "Videokartalar",
+                  "Operativ xotira",
+                  "SSD drayvlar",
+                  "Onalik platalar",
+                  "Protsessorlar",
+                  "SSD drayvlar",
             ]
       },
       {
             id: 3,
             icon: img4,
-            name: "Ноутбуки",
-            menu: [
+            name_ru: "Ноутбуки",
+            name_uz: "Noutbuklar",
+            menu_ru: [
                   "Оперативная память",
                   "SSD накопители",
                   "Материнские платы",
                   "Процессоры",
                   "Оперативная память",
                   "SSD накопители",
+            ],
+            menu_uz: [
+                  "Operativ xotira",
+                  "SSD drayvlar",
+                  "Onalik platalar",
+                  "Protsessorlar",
+                  "Operativ xotira",
+                  "SSD drayvlar",
             ]
       },
       {
             id: 4,
             icon: img5,
-            name: "Игровые консоли",
-            menu: [
+            name_ru: "Игровые консоли",
+            name_uz: "O'yin konsollari",
+            menu_ru: [
                   "Оперативная память",
                   "SSD накопители",
                   "Материнские платы",
                   "Процессоры",
                   "Оперативная память",
                   "SSD накопители",
+            ],
+            menu_uz: [
+                  "Operativ xotira",
+                  "SSD drayvlar",
+                  "Onalik platalar",
+                  "Protsessorlar",
+                  "Operativ xotira",
+                  "SSD drayvlar",
             ]
       },
       {
             id: 5,
             icon: img6,
-            name: "Комплектующие к ноутбукам",
-            menu: [
+            name_ru: "Комплектующие к ноутбукам",
+            name_uz: "Noutbuk qismlari",
+            menu_ru: [
                   "Видеокарты",
                   "Оперативная память",
                   "Материнские платы",
                   "Процессоры",
                   "Оперативная память",
+            ],
+            menu_uz: [
+                  "Videokartalar",
+                  "Operativ xotira",
+                  "Onalik platalar",
+                  "Protsessorlar",
+                  "Operativ xotira",
             ]
       },
       {
             id: 6,
             icon: img7,
-            name: "Планшеты",
-            menu: [
+            name_ru: "Планшеты",
+            name_uz: "Planshetlar",
+            menu_ru: [
                   "Оперативная память",
                   "Процессоры",
                   "Оперативная память",
                   "SSD накопители",
+            ],
+            menu_uz: [
+                  "Operativ xotira",
+                  "Protsessorlar",
+                  "Operativ xotira",
+                  "SSD drayvlar",
             ]
       },
       {
             id: 7,
             icon: img8,
-            name: "Принтеры и МФУ",
-            menu: [
+            name_ru: "Принтеры и МФУ",
+            name_uz: "Printerlar va MFP",
+            menu_ru: [
                   "Видеокарты",
                   "SSD накопители",
                   "Материнские платы",
                   "Процессоры",
                   "SSD накопители",
+            ],
+            menu_uz: [
+                  "Videokartalar",
+                  "SSD drayvlar",
+                  "Onalik platalar",
+                  "Protsessorlar",
+                  "SSD drayvlar",
             ]
       },
       {
             id: 8,
             icon: img9,
-            name: "Акустические колонки",
-            menu: [
+            name_ru: "Акустические колонки",
+            name_uz: "Akustik kolonka",
+            menu_ru: [
                   "Видеокарты",
                   "Оперативная память",
                   "SSD накопители",
@@ -142,16 +212,31 @@ export const CatalogName = [
                   "Процессоры",
                   "Оперативная память",
                   "SSD накопители",
+            ],
+            menu_uz: [
+                  "Videokartalar",
+                  "Operativ xotira",
+                  "SSD drayvlar",
+                  "Onalik platalar",
+                  "Protsessorlar",
+                  "Operativ xotira",
+                  "SSD drayvlar",
             ]
       },
       {
             id: 9,
             icon: img10,
-            name: "Сетевое оборудование",
-            menu: [
+            name_ru: "Сетевое оборудование",
+            name_uz: "Tarmoq uskunalari",
+            menu_ru: [
                   "Оперативная память",
                   "SSD накопители",
                   "Оперативная память",
+            ],
+            menu_uz: [
+                  "Operativ xotira",
+                  "SSD drayvlar",
+                  "Operativ xotira",
             ]
       }
 ]
@@ -195,13 +280,13 @@ import headerIcon6 from "../assets/img/headerIcon (6).svg"
 import headerIcon7 from "../assets/img/headerIcon (7).svg"
 
 export const headerIcons = [
-      { id: 0, image: headerIcon1, text: "Бесплатная сборка " },
-      { id: 1, image: headerIcon2, text: "Рассрочка 4 мес./0% без переплат " },
-      { id: 2, image: headerIcon3, text: "Бесплатная  доставка " },
-      { id: 3, image: headerIcon4, text: "Официальная гарантия " },
-      { id: 4, image: headerIcon5, text: "Лучшая цена " },
-      { id: 5, image: headerIcon6, text: "11 лет на рынке " },
-      { id: 6, image: headerIcon7, text: "Профессиональная консультация " }
+      { id: 0, image: headerIcon1, text_ru: "Бесплатная сборка ", text_uz: "Bepul yig'ish" },
+      { id: 1, image: headerIcon2, text_ru: "Рассрочка 4 мес./0% без переплат ", text_uz: "4 oyga bo'lib to'lash/0% ortiqcha to'lovsiz" },
+      { id: 2, image: headerIcon3, text_ru: "Бесплатная  доставка ", text_uz: "Bepul yetkazib berish" },
+      { id: 3, image: headerIcon4, text_ru: "Официальная гарантия ", text_uz: "Rasmiy kafolat" },
+      { id: 4, image: headerIcon5, text_ru: "Лучшая цена ", text_uz: "Eng yaxshi narx" },
+      { id: 5, image: headerIcon6, text_ru: "11 лет на рынке ", text_uz: "11 yil bozorda" },
+      { id: 6, image: headerIcon7, text_ru: "Профессиональная консультация ", text_uz: "Professional maslahat" }
 ]
 
 
@@ -215,29 +300,37 @@ export const newsData = [
       {
             id: 0,
             image: newsImg,
-            title: "Вакансия! Требуется контент-менеджер ",
-            text: 'Интернет-магазину V-COMP на постоянную работу, требуется контент-менеджер. Работа удаленно (на дому), не сложная...',
+            title_ru: "Вакансия! Нужен контент-менеджер",
+            title_uz: "Vakansiya! Kontent-menejer kerak",
+            text_ru: 'В интернет-магазин V-COMP требуется контент-менеджер на постоянную работу. Работа удаленная (на дому), не сложная...',
+            text_uz: 'V-COMP internet-do‘koniga doimiy ish uchun kontent-menejer kerak. Ish masofadan (uyda), murakkab emas...',
             date: "07.07.2021"
       },
       {
             id: 1,
             image: newsImg2,
-            title: "Бесплатная сборка ПК",
-            text: 'Друзья! При покупке всех комплектующих для ПК в нашей компании, сборка ПК бесплатно. Вам не нужно тратить время и рисковать...',
+            title_ru: "Сборка компьютера бесплатно",
+            title_uz: "Kompyuter yig‘ish bepul",
+            text_ru: 'Друзья! При покупке всех комплектующих для компьютера в нашей компании, сборка компьютера бесплатно. Вам не нужно тратить время и рисковать...',
+            text_uz: 'Do‘stlar! Kompyuter uchun barcha qismlarni bizning kompaniyamizdan sotib olganingizda, kompyuter yig‘ish bepul. Sizga vaqt sarflash va xavf tug‘dirmaslik kerak emas...',
             date: "07.07.2021"
       },
       {
             id: 2,
             image: newsImg3,
-            title: "Бесплатная доставка",
-            text: 'Бесплатная доставка по Днепру (курьером) при покупке от 3000 грн. (Подробнее в разделе Оплата и доставка)...',
+            title_ru: "Бесплатная доставка",
+            title_uz: "Bepul yetkazib berish",
+            text_ru: 'Бесплатная доставка по Днепру (курьером) при покупке от 3000 гривен. (Подробнее в разделе Оплата и доставка)...',
+            text_uz: 'Dnepr bo‘ylab (kuryer orqali) 3000 grivnadan ortiq xarid qilganingizda bepul yetkazib berish. (Batafsil ma’lumot To‘lov va yetkazib berish bo‘limida)...',
             date: "07.07.2021"
       },
       {
             id: 3,
             image: newsImg4,
-            title: "Акция! Подготовь ноутбук к лету!)",
-            text: 'У нас ежегодная акция "Подготовь ноутбук к лету!" 50% скидка на чистку ноутбука, 15.05.19-15.06.19 В чистку входит...',
+            title_ru: "Акция! Подготовь ноутбук к лету!)",
+            title_uz: "Aksiya! Noutbukni yozga tayyorlang!)",
+            text_ru: 'У нас ежегодная акция "Подготовь ноутбук к лету!". Скидка 50% на чистку ноутбука, 15.05.19-15.06.19. В чистку входит...',
+            text_uz: 'Bizda har yili o‘tkaziladigan "Noutbukni yozga tayyorlang!" aksiyasi. Noutbukni tozalashga 50% chegirma, 15.05.19-15.06.19. Tozalashga quyidagilar kiradi...',
             date: "07.07.2021"
       },
 ]

@@ -4,8 +4,11 @@ import './Footer.scss'
 import { FiSend } from "react-icons/fi";
 import logo from "../../assets/img/Logo white.png"
 import pay from "../../assets/img/pays.svg"
+import { Context } from "../../Hooks/Context";
+import { useContext } from "react";
 
 export default function Footer() {
+  const { language } = useContext(Context);
   return (
     <footer>
       <Container >
@@ -13,17 +16,17 @@ export default function Footer() {
           <Col lg={2} md={6}>
             <ul>
               <span>Информация</span>
-              {navLinks.map(({ id, linkName, slug }) => {
-                return <li key={id}><NavLink to={slug}>{linkName}</NavLink></li>
+              {navLinks.map(({ id, linkName_ru, linkName_uz, slug }) => {
+                return <li key={id}><NavLink to={slug}>{language === "uz" ? linkName_uz : linkName_ru}</NavLink></li>
               })}
             </ul>
           </Col>
 
           <Col lg={2} md={6}>
             <ul>
-              <span>Услуги и сервисы</span>
-              {navLinks.map(({ id, linkName, slug }) => {
-                return <li key={id}><NavLink to={slug}>{linkName}</NavLink></li>
+              <span>Информация</span>
+              {navLinks.map(({ id, linkName_ru, linkName_uz, slug }) => {
+                return <li key={id}><NavLink to={slug}>{language === "uz" ? linkName_uz : linkName_ru}</NavLink></li>
               })}
             </ul>
           </Col>
@@ -32,7 +35,7 @@ export default function Footer() {
             <ul>
               <span>Контакты</span>
               {telephoneNumbers.map(({ id, number }) => {
-                return <li key={id}>{number} - Отдел продаж</li>
+                return <li key={id}>{number} - {language === "ru" ? "Отдел продаж" : "Sotuv bo'limi"}</li>
               })}
 
               <li>Днепр Европейская, 8 (бывшая Миронова 8)</li>

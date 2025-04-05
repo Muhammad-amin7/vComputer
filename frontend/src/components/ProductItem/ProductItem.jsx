@@ -6,7 +6,7 @@ import { Context } from '../../Hooks/Context';
 
 export default function ProductItem({ product }) {
       const navigate = useNavigate()
-      const { setAddedCart, setFavoriteProducts, favoriteProducts } = useContext(Context)
+      const { setAddedCart, setFavoriteProducts, favoriteProducts, language } = useContext(Context)
 
       // function product add to cart >=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=->
 
@@ -27,7 +27,7 @@ export default function ProductItem({ product }) {
                   <div className='product' key={id} >
                         <div className="productTop">
                               <div className="left">
-                                    {isNew && <p className='isNew'>Новинка</p>}
+                                    {isNew && <p className='isNew'>{language === 'ru' ? 'Новинка' : "Yangi qo'shilgan"}</p>}
                               </div>
                               <div className="right">
                                     <button><FaBalanceScale /></button>
@@ -54,22 +54,22 @@ export default function ProductItem({ product }) {
                                                 <FaStar key={index} />
                                           ))}
 
-                                          <p>Отзывов: {comment}</p>
+                                          <p>{language === "uz" ? "Sharhlar" : "Отзывов"}: {comment}</p>
                                     </div>
                               )}
                         </div>
 
                         <div className="productBottom">
                               <div className="price" >
-                                    <p className='old-price'>{price.new && price.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ") + "сум"}</p>
+                                    <p className='old-price'>{price.new && price.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ") + (language === "uz" ? "so'm" : "сум")}</p>
                                     {!price.new
-                                          ? <p className='price'>{price.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")}<span>сум</span></p>
-                                          : <p className='price priceNew'>{price.new.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")}<span>сум</span></p>}
+                                          ? <p className='price'>{price.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")}<span>{language === "uz" ? "so'm" : "сум"}</span></p>
+                                          : <p className='price priceNew'>{price.new.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")}<span>{language === "uz" ? "so'm" : "сум"}</span></p>}
                               </div>
 
                               <button className='buy' onClick={() => handleAddtoCart(id)}>
                                     <span className='icon'><FaShoppingCart /></span>
-                                    <span className='text'>КУПИТЬ</span>
+                                    <span className='text'>{(language === "uz" ? "Sotib olish" : "КУПИТЬ")}</span>
                               </button>
                         </div>
                   </div>

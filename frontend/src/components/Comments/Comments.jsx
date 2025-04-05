@@ -1,20 +1,22 @@
 import { Col, Container, Row } from 'react-bootstrap'
 import './Comments.scss'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import { commentsData } from '../../Constants/CommentData'
 import { FaArrowLeft, FaArrowRight, FaStar } from "react-icons/fa6";
 import InstagramContents from '../InstagramContents/InstagramContents';
+import { Context } from '../../Hooks/Context';
 
 export default function Comments() {
       // active Commen increment
       const [activeComment, setActiveComment] = useState(0)
+      const { language } = useContext(Context)
       return (
             <section className='Comments'>
                   <Container>
                         <Row className='justify-content-center'>
                               <Col xl={5} lg={6} >
                                     <Row>
-                                          <Col xs={12}><h1 className="title">Отзывы</h1></Col>
+                                          <Col xs={12}><h1 className="title">{language === "uz" ? "Sharxlar" : 'Отзывы'}</h1></Col>
 
                                           <Col xl={12} className=' d-flex justify-content-center'>
                                                 {commentsData.map(({ id, userName, photo, stars, date, comment, rating }, index) => {

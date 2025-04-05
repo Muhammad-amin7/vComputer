@@ -1,13 +1,15 @@
 import { FaChevronDown, FaChevronUp, FaTelegram, FaWhatsapp } from "react-icons/fa";
 import { telephoneNumbers } from "../../Constants/Data";
 import { LuPhoneCall } from "react-icons/lu";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import "./TelephoneNumbers.scss";
 
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
+import { Context } from "../../Hooks/Context";
 
 export default function TelephoneNumbers() {
+      const { language } = useContext(Context)
       const [phone, setPhone] = useState('');
       // toggle show all numbers
       const [numbers, setNumbers] = useState(false);
@@ -34,8 +36,6 @@ export default function TelephoneNumbers() {
                                     setPhone("+998")
                               }
                         })
-            } else {
-                  alert("place enter your name and phone")
             }
       }
 
@@ -74,10 +74,10 @@ export default function TelephoneNumbers() {
                                     <FaTelegram />
                               </div>
                         </div>
-                        <p>или</p>
-                        <h2>Перезвонить мне</h2>
+                        <p>{language === 'uz' ? "yoki" : "или"}</p>
+                        <h2>{language === "uz" ? "Qayta qo'ng'iroq qilish" : "Перезвонить мне"}</h2>
                         <form autoComplete="off">
-                              <input value={name} type="text" name="name" placeholder="Ваше имя" required onChange={(e) => setName(e.target.value)} />
+                              <input value={name} type="text" name="name" placeholder={language === 'uz' ? "Izmingiz" : "Ваше имя"} required onChange={(e) => setName(e.target.value)} />
                               <PhoneInput
                                     country={'uz'}
                                     value={phone}
@@ -85,7 +85,7 @@ export default function TelephoneNumbers() {
                                     name="phone"
                                     required
                               />
-                              <button type="submit" onClick={(e) => handleSendData(e)}>ЗАКАЗАТЬ ЗВОНОК</button>
+                              <button type="submit" onClick={(e) => handleSendData(e)}>{language === "uz" ? "QONG'IROQ QILING" : "ЗАКАЗАТЬ ЗВОНОК"}</button>
                         </form>
                   </div>
             </div>

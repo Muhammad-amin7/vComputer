@@ -15,15 +15,14 @@ import CatalogProductModal from '../CatalogProductModal/CatalogProductModal';
 import logoWhite from '../../assets/img/Logo white.png'
 import Basket from '../Basket/Basket';
 import { IoCart, IoCartOutline } from "react-icons/io5";
-import Favorites from '../Favorites/Favorites';
 import { PiArrowSquareOut } from "react-icons/pi";
+import { navLinks } from '../../Constants/Data';
 
 export default function Navbar() {
-      const [changeLang, setChangeLang] = useState('ru')
+      const { language, setLanguage } = useContext(Context)
       const { toggleLeftModal, setToggleLeftModal, addedCart, favoriteProducts, passRegister } = useContext(Context)
       const [loginModalActive, setLoginModalActive] = useState(false)
       const [basketActive, setBasketActive] = useState(false)
-      const [favoriteActive, setFavoriteActive] = useState(false)
       const [catalogModalActive, setCatalogModalActive] = useState(false)
       const [basketCount, setBasketCount] = useState(0)
       const [scrollYSize, setScrollSize] = useState(0)
@@ -45,15 +44,6 @@ export default function Navbar() {
             addedCart.filter((item) => setBasketCount(prev => prev += item.count))
       }, [addedCart])
 
-      const navLinks = [
-            { id: 0, linkName: 'Акции', slug: '/sale' },
-            { id: 1, linkName: 'Кредит', slug: '/credit' },
-            { id: 2, linkName: 'Оплата и доставка', slug: '/payment' },
-            { id: 3, linkName: 'Помощь', slug: '/help' },
-            { id: 4, linkName: 'Скупка Б/У', slug: '/buyback' },
-            { id: 5, linkName: 'Контакты', slug: '/contact' },
-      ]
-
       return (
             <>
                   <nav >
@@ -68,8 +58,8 @@ export default function Navbar() {
                                                 </button>
 
                                                 <ul className='d-none d-md-flex'>
-                                                      {navLinks.map(({ id, linkName, slug }) => {
-                                                            return <li key={id}><Link to={slug} >{linkName}</Link></li>
+                                                      {navLinks.map(({ id, linkName_ru, slug, linkName_uz }) => {
+                                                            return <li key={id}><Link to={slug} >{language == 'ru' ? linkName_ru : linkName_uz}</Link></li>
                                                       })}
                                                 </ul>
                                           </Col>
@@ -80,10 +70,10 @@ export default function Navbar() {
 
                                           <Col md={2} xs={4} className="d-flex align-items-center justify-content-end gap-5">
                                                 <div className="change-language d-none d-sm-flex">
-                                                      <button onClick={() => setChangeLang('ru')} className={changeLang === 'ru' ? 'active' : null}>Ru</button>
+                                                      <button onClick={() => setLanguage('ru')} className={language === 'ru' ? 'active' : null}>Ru</button>
                                                       /
-                                                      <button onClick={() => setChangeLang('uz')}
-                                                            className={changeLang === 'uz' ? 'active' : null}>Uz</button>
+                                                      <button onClick={() => setLanguage('uz')}
+                                                            className={language === 'uz' ? 'active' : null}>Uz</button>
                                                 </div>
                                                 <div className='d-block d-sm-none'>
                                                       <TelephoneNumbers />
@@ -109,7 +99,7 @@ export default function Navbar() {
                                                       onClick={() => { setCatalogModalActive(prev => !prev); setScrollSize(60); }}
                                                       className='btn-CatalogModal'
                                                       style={{ background: catalogModalActive && "#E93232" }}>
-                                                      {catalogModalActive ? "закрыть" : "КАТАЛОГ ТОВАРОВ"} {catalogModalActive ? <FaXmark /> : <PiArrowSquareOut />}
+                                                      {catalogModalActive ? (language === "ru" ? "закрыть" : "yopish") : (language === 'ru' ? "КАТАЛОГ ТОВАРОВ" : "MAHSULOT TURLARI")} {catalogModalActive ? <FaXmark /> : <PiArrowSquareOut />}
                                                 </button>
                                           </Col>
 

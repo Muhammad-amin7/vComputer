@@ -7,6 +7,7 @@ import { Context } from '../../Hooks/Context';
 import { FaXmark } from 'react-icons/fa6';
 
 export default function SearchProducts() {
+      const { language } = useContext(Context)
       const [searchValue, setSearchValue] = useState('');
       const [searchRes, setSearchRes] = useState([]);
       const [isSearch, setIsSearch] = useState(true)
@@ -37,7 +38,7 @@ export default function SearchProducts() {
                               onChange={(e) => { setSearchValue(e.target.value); setIsSearch(true) }}
                               className='d-none d-sm-block'
                               type="text"
-                              placeholder='Поиск'
+                              placeholder={language === 'uz' ? "Qidiruv" : "Поиск"}
                         />
                         {isSearch ?
                               <button type="button" onClick={handleSearch}><FaSearch /></button>
@@ -45,7 +46,6 @@ export default function SearchProducts() {
                         }
                   </form>
 
-                  {/* Qidiruv natijalari */}
                   {searchRes.length > 0 && (
                         <div className="searchResult">
                               {searchRes.map(item => (
@@ -64,7 +64,7 @@ export default function SearchProducts() {
                                                       }
                                                 })}
                                           >
-                                                КУПИТЬ
+                                                {language === 'uz' ? "SOTIB OLISH" : "КУПИТЬ"}
                                           </button>
                                     </div>
                               ))}

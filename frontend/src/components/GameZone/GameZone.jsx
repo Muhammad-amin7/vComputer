@@ -8,10 +8,12 @@ import img2 from "../../assets/img/gaming (2).png"
 import img3 from "../../assets/img/gaming (3).png"
 import img4 from "../../assets/img/gaming (4).png"
 import img5 from "../../assets/img/gaming (5).png"
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import Slider from 'react-slick'
+import { Context } from '../../Hooks/Context'
 export default function GameZone() {
       const [showItems, setShowItems] = useState(6)
+      const { language } = useContext(Context)
       useEffect(() => {
             const updateItems = () => {
                   if (window.innerWidth <= 991) {
@@ -47,12 +49,12 @@ export default function GameZone() {
       };
 
       const gamingCategory = [
-            { id: 0, name: "Клавиатуры", image: img1 },
-            { id: 1, name: "Мыши", image: img2 },
-            { id: 2, name: "Аксессуары", image: img3 },
-            { id: 3, name: "Игровые ноутбуки", image: img4 },
-            { id: 4, name: "Видеокарты", image: img5 },
-            { id: 5, name: "Мониторы", image: img6 },
+            { id: 0, name_ru: "Клавиатуры", name_uz: "Klaviaturalar", image: img6 },
+            { id: 1, name_ru: "Мыши", name_uz: "Sichqonchalar", image: img5 },
+            { id: 2, name_ru: "Аксессуары", name_uz: "Aksessuarlar", image: img4 },
+            { id: 3, name_ru: "Игровые ноутбуки", name_uz: "O'yin noutbuklari", image: img3 },
+            { id: 4, name_ru: "Видеокарты", name_uz: "Videokartalar", image: img2 },
+            { id: 5, name_ru: "Мониторы", name_uz: "Monitorlar", image: img1 },
       ]
       return (
             <div className='gameZone'>
@@ -72,17 +74,17 @@ export default function GameZone() {
 
                         <Row className='justify-content-center'>
                               <Col xs={12} >
-                                    <h2>Категории для геймеров</h2>
+                                    <h2>{language === "ru" ? "Категории для геймеров" : "Geymerlar uchun toifalar"}</h2>
                               </Col>
 
 
                               <Row>
                                     <Slider {...settings}>
-                                          {gamingCategory.map(({ id, name, image }) => {
+                                          {gamingCategory.map(({ id, name_ru, name_uz, image }) => {
                                                 return <Col key={id} xl={2} lg={2} md={4} xs={6}>
                                                       <div className="game">
                                                             <img src={image} alt="" />
-                                                            <p>{name}</p>
+                                                            <p>{language === "uz" ? name_uz : name_ru}</p>
                                                       </div>
                                                 </Col>
                                           })}
